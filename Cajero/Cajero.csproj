@@ -68,7 +68,6 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="ArbolBB.cs" />
-    <Compile Include="CNodo.cs" />
     <Compile Include="Consignar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,12 +107,13 @@
     <Compile Include="Persona.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="retirar.cs">
+    <Compile Include="Retirar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="retirar.Designer.cs">
-      <DependentUpon>retirar.cs</DependentUpon>
+    <Compile Include="Retirar.Designer.cs">
+      <DependentUpon>Retirar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sucursal.cs" />
     <Compile Include="Transferencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +126,7 @@
     <Compile Include="Usuario.Designer.cs">
       <DependentUpon>Usuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validar.cs" />
     <EmbeddedResource Include="AddClientes.resx">
       <DependentUpon>AddClientes.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,8 +163,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="retirar.resx">
-      <DependentUpon>retirar.cs</DependentUpon>
+    <EmbeddedResource Include="Retirar.resx">
+      <DependentUpon>Retirar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transferencia.resx">
       <DependentUpon>Transferencia.cs</DependentUpon>

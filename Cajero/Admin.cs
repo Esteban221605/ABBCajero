@@ -111,12 +111,45 @@ namespace Cajero
                 btnAddSucursal.BackColor = Color.FromArgb(4, 41, 68);
             if (Application.OpenForms["Form3"] == null)
                 btnCrearCuentasBancarias.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["Form4"] == null)
+                btnLisClienteSaldoActual.BackColor = Color.FromArgb(4, 41, 68);
+            if (Application.OpenForms["Form3"] == null)
+               btnLisCliPorSucursal.BackColor = Color.FromArgb(4, 41, 68);
         }
 
         private void btnAddCliente_Click(object sender, EventArgs e)
         {
             Abrirformulario<AddClientes>();
             btnAddCliente.BackColor = Color.FromArgb(12,61,92);
+        }
+
+        private void btnAddSucursal_Click(object sender, EventArgs e)
+        {
+            Abrirformulario<AddSucursal>();
+            btnAddSucursal.BackColor = Color.FromArgb(12, 61, 92);
+        }
+
+        private void btnCrearCuentasBancarias_Click(object sender, EventArgs e)
+        {
+            Abrirformulario<CrearCuentasBancarias>();
+            btnCrearCuentasBancarias.BackColor = Color.FromArgb(12, 61, 92);
+        }
+
+        private void btnLisCliPorSucursal_Click(object sender, EventArgs e)
+        {
+            Abrirformulario<ListarClientesPorSucursalcs>();
+            btnLisCliPorSucursal.BackColor = Color.FromArgb(12, 61, 92);
+        }
+
+        private void btnLisClienteSaldoActual_Click(object sender, EventArgs e)
+        {
+            Abrirformulario<ListarClienteConSaldoActual>();
+            btnLisClienteSaldoActual.BackColor = Color.FromArgb(12, 61, 92);
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

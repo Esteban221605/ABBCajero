@@ -9,16 +9,17 @@ namespace Cajero
         public AddClientes()
         {
             InitializeComponent();
-
-
         }
         ArbolBB arbol = new ArbolBB();
         Persona RaizPersona = null;
+       
+        
 
         private void btnCrearCliente_Click(object sender, EventArgs e)
         {
             if (txtCodigocliente.Text == "" || txtNombreCliente.Text == "" || txtApellidoCliente.Text == "" || txtDireccionCliente.Text == "" || txtTelefonoCliente.Text == "" || txtCiudadCliente.Text == "")
                 MessageBox.Show("hay campos sin llenar!", "Error");
+
             else
             {
                 ArbolBB anterior = null, actual;
@@ -33,9 +34,10 @@ namespace Cajero
                 nuevo.EscribirClientes(nuevo);
             }
         }
-        public DataGridView Dgv { get; set; }
+
         private void btnListarCliente_Click(object sender, EventArgs e)
         {
+           
 
             StreamReader Arch = new StreamReader("Clientes.txt");
             int fila = 0;
@@ -56,20 +58,52 @@ namespace Cajero
                 }
                 else
                 {
-                    arbol.Insertar(persona, RaizPersona);
+                    arbol.InsertarPersona(persona, RaizPersona);
                 }
-
+               
                 fila++;
             }
 
             Arch.Close();
 
             arbol.RecorrerPersona(RaizPersona, this);
+            
         }
 
         private void dataGridViewAddClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+            
+        }
 
+        private void btnCancelarCliente_Click(object sender, EventArgs e)
+        {
+            foreach (Control oControls in this.panel1.Controls)
+            {
+                if (oControls is TextBox)
+                {
+                    oControls.Text = ""; // Eliminar el texto del TextBox
+                }
+            }
+
+
+        }
+
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtCodigocliente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validar.SoloNumeros(e);
+        }
+
+        private void btnListarCliente_Enter(object sender, EventArgs e)
+        {
+           
+           
         }
     }
 }

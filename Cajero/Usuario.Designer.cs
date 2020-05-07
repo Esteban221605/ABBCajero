@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Usuario));
             this.panel3 = new System.Windows.Forms.Panel();
-            this.Logo = new System.Windows.Forms.PictureBox();
+            this.panelFormularios = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -44,7 +44,7 @@
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.btnCerarr = new System.Windows.Forms.PictureBox();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelFormularios)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -54,24 +54,24 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
-            this.panel3.Controls.Add(this.Logo);
+            this.panel3.Controls.Add(this.panelFormularios);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(250, 40);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(806, 570);
             this.panel3.TabIndex = 5;
             // 
-            // Logo
+            // panelFormularios
             // 
-            this.Logo.BackColor = System.Drawing.Color.White;
-            this.Logo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(0, 0);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(806, 570);
-            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Logo.TabIndex = 1;
-            this.Logo.TabStop = false;
+            this.panelFormularios.BackColor = System.Drawing.Color.White;
+            this.panelFormularios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFormularios.Image = ((System.Drawing.Image)(resources.GetObject("panelFormularios.Image")));
+            this.panelFormularios.Location = new System.Drawing.Point(0, 0);
+            this.panelFormularios.Name = "panelFormularios";
+            this.panelFormularios.Size = new System.Drawing.Size(806, 570);
+            this.panelFormularios.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.panelFormularios.TabIndex = 1;
+            this.panelFormularios.TabStop = false;
             // 
             // panel2
             // 
@@ -136,8 +136,9 @@
             this.btnEstadofactura.Name = "btnEstadofactura";
             this.btnEstadofactura.Size = new System.Drawing.Size(212, 42);
             this.btnEstadofactura.TabIndex = 8;
-            this.btnEstadofactura.Text = "Factura";
+            this.btnEstadofactura.Text = "ESTADO";
             this.btnEstadofactura.UseVisualStyleBackColor = true;
+            this.btnEstadofactura.Click += new System.EventHandler(this.btnEstadofactura_Click);
             // 
             // btnTransferrir
             // 
@@ -155,6 +156,7 @@
             this.btnTransferrir.TabIndex = 7;
             this.btnTransferrir.Text = "Transferir";
             this.btnTransferrir.UseVisualStyleBackColor = true;
+            this.btnTransferrir.Click += new System.EventHandler(this.btnTransferrir_Click);
             // 
             // btnConsignar
             // 
@@ -172,6 +174,7 @@
             this.btnConsignar.TabIndex = 5;
             this.btnConsignar.Text = "Consignar";
             this.btnConsignar.UseVisualStyleBackColor = true;
+            this.btnConsignar.Click += new System.EventHandler(this.btnConsignar_Click);
             // 
             // btnRetirar
             // 
@@ -189,6 +192,7 @@
             this.btnRetirar.TabIndex = 6;
             this.btnRetirar.Text = "Retirar";
             this.btnRetirar.UseVisualStyleBackColor = true;
+            this.btnRetirar.Click += new System.EventHandler(this.btnRetirar_Click);
             // 
             // panel1
             // 
@@ -240,7 +244,7 @@
             this.Name = "Usuario";
             this.Text = "Usuario";
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelFormularios)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -259,7 +263,7 @@
         private System.Windows.Forms.Button btnTransferrir;
         private System.Windows.Forms.Button btnConsignar;
         private System.Windows.Forms.Button btnRetirar;
-        private System.Windows.Forms.PictureBox Logo;
+        private System.Windows.Forms.PictureBox panelFormularios;
         private System.Windows.Forms.Button btnEstadofactura;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;

@@ -16,9 +16,10 @@ namespace Cajero
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           //Application.Run(new Form1());
-            Application.Run(new Admin());
+             Application.Run(new Loguin());
+            //Application.Run(new Admin());
             //Application.Run(new Usuario());
+           
         }
     }
 }

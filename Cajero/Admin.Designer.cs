@@ -162,9 +162,9 @@
             this.btnLisClienteSaldoActual.Name = "btnLisClienteSaldoActual";
             this.btnLisClienteSaldoActual.Size = new System.Drawing.Size(232, 41);
             this.btnLisClienteSaldoActual.TabIndex = 6;
-            this.btnLisClienteSaldoActual.Text = "saldo actual";
+            this.btnLisClienteSaldoActual.Text = "Listar por saldo";
             this.btnLisClienteSaldoActual.UseVisualStyleBackColor = true;
-            
+            this.btnLisClienteSaldoActual.Click += new System.EventHandler(this.btnLisClienteSaldoActual_Click);
             // 
             // btnLisCliPorSucursal
             // 
@@ -180,9 +180,9 @@
             this.btnLisCliPorSucursal.Name = "btnLisCliPorSucursal";
             this.btnLisCliPorSucursal.Size = new System.Drawing.Size(232, 41);
             this.btnLisCliPorSucursal.TabIndex = 5;
-            this.btnLisCliPorSucursal.Text = "Buscar sucursal";
+            this.btnLisCliPorSucursal.Text = "Listar por sucursal";
             this.btnLisCliPorSucursal.UseVisualStyleBackColor = true;
-         
+            this.btnLisCliPorSucursal.Click += new System.EventHandler(this.btnLisCliPorSucursal_Click);
             // 
             // btnCrearCuentasBancarias
             // 
@@ -200,13 +200,13 @@
             this.btnCrearCuentasBancarias.TabIndex = 4;
             this.btnCrearCuentasBancarias.Text = "Crear cuenta";
             this.btnCrearCuentasBancarias.UseVisualStyleBackColor = true;
-           
+            this.btnCrearCuentasBancarias.Click += new System.EventHandler(this.btnCrearCuentasBancarias_Click);
             // 
             // btnAddSucursal
             // 
             this.btnAddSucursal.FlatAppearance.BorderSize = 0;
             this.btnAddSucursal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnAddSucursal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(122)))));
+            this.btnAddSucursal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(142)))));
             this.btnAddSucursal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSucursal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSucursal.ForeColor = System.Drawing.Color.Gainsboro;
@@ -218,7 +218,7 @@
             this.btnAddSucursal.TabIndex = 3;
             this.btnAddSucursal.Text = "Adicionar Sucursal";
             this.btnAddSucursal.UseVisualStyleBackColor = true;
-          
+            this.btnAddSucursal.Click += new System.EventHandler(this.btnAddSucursal_Click);
             // 
             // btnAddCliente
             // 

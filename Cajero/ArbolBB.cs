@@ -1,29 +1,18 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace Cajero
 {
     class ArbolBB
     {
-        private CNodo raiz;//nodo raiz
-        private CNodo trabajo;
+      
         private int fila = 0;
 
 
 
         private int i = 0;//valor de intentacion,servira para desplegar de forma mas sencilla el arbol
 
-        public ArbolBB()
-        {
-            raiz = null;
-        }
-
-        internal CNodo Raiz { get => raiz; set => raiz = value; }//propiedad para raiz, servira para obtener la raiz o cambiarla en cualquier momento
-
-        //insertar
-        //el primer parametro es el dato que deseamos insertar y el segundo es el nodo en el cual nosotros queremos que se lleve acabo la insercion.       
-        //insertar es un metodo recursivo.
-        public void Insertar(Persona nuevo, Persona primeraPersona)
+       
+        public void InsertarPersona(Persona nuevo, Persona primeraPersona)
         {
             Persona anterior = null, actual;
 
@@ -43,14 +32,122 @@ namespace Cajero
             else
                 anterior.NodoDerecho = nuevo;
         }
-      
-        public void RecorrerPersona(Persona Raiz, AddClientes formPersona)
+        public void InsertarSucursal(Sucursal nuevo, Sucursal primeraSucursal)
+        {
+            Sucursal anterior = null, actual;
+
+            Console.WriteLine("En el else: " + nuevo.codigo);
+            actual = primeraSucursal;
+            while (actual != null)
+            {
+                anterior = actual;
+                if (actual.codigo > nuevo.codigo)
+                    actual = actual.NodoIzquierdo;
+                else
+                    actual = actual.NodoDerecho;
+            }
+            if (anterior.codigo > nuevo.codigo)
+                anterior.NodoIzquierdo = nuevo;
+
+            else
+                anterior.NodoDerecho = nuevo;
+        }
+        public void InsertarSaldoActual(Persona nuevo, Persona primeraPersona)
+        {
+            Persona anterior = null, actual;
+
+            Console.WriteLine("En el else: " + nuevo.saldo);
+            actual = primeraPersona;
+            while (actual != null)
+            {
+                anterior = actual;
+                if (actual.saldo > nuevo.saldo)
+                    actual = actual.NodoIzquierdo;
+                else
+                    actual = actual.NodoDerecho;
+            }
+            if (anterior.saldo > nuevo.saldo)
+                anterior.NodoIzquierdo = nuevo;
+
+            else
+                anterior.NodoDerecho = nuevo;
+        }
+        public void InsertarClienteSucursal(Persona nuevo, Persona primeraPersona)
+        {
+            Persona anterior = null, actual;
+
+            Console.WriteLine("En el else: " + nuevo.sucursal);
+            actual = primeraPersona;
+            while (actual != null)
+            {
+                anterior = actual;
+                if (actual.sucursal > nuevo.sucursal)
+                    actual = actual.NodoIzquierdo;
+                else
+                    actual = actual.NodoDerecho;
+            }
+            if (anterior.sucursal > nuevo.sucursal)
+                anterior.NodoIzquierdo = nuevo;
+
+            else
+                anterior.NodoDerecho = nuevo;
+        }
+
+        public void RecorrerClientesPorSucursal(Persona Raiz, ListarClientesPorSucursalcs formListarSuc)
         {
             if (Raiz != null)
             {
+                RecorrerClientesPorSucursal(Raiz.NodoIzquierdo, formListarSuc);
+               formListarSuc.dataGridViewListarCuenta.Rows.Add();
+
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Codigo"].Value = Raiz.codigo;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Nombre"].Value = Raiz.nombre;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Apellido"].Value = Raiz.apellido;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Direccion"].Value = Raiz.direccion;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Telefono"].Value = Raiz.telefono;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Ciudad"].Value = Raiz.ciudad;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["codsucursal"].Value = Raiz.sucursal;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Cuenta"].Value = Raiz.numeroCuenta;
+               formListarSuc.dataGridViewListarCuenta.Rows[fila].Cells["Saldo"].Value = Raiz.saldo;
+
+                fila++;
+
+                RecorrerClientesPorSucursal(Raiz.NodoDerecho, formListarSuc);
+            }
+        }
+
+        public void RecorrerClienteSaldo(Persona Raiz, ListarClienteConSaldoActual formListarSal)
+        {
+            if (Raiz != null)
+            {
+                RecorrerClienteSaldo(Raiz.NodoIzquierdo, formListarSal);
+                formListarSal.dataGridViewListarCuenta.Rows.Add();
+
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Codigo"].Value = Raiz.codigo;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Nombre"].Value = Raiz.nombre;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Apellido"].Value = Raiz.apellido;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Direccion"].Value = Raiz.direccion;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Telefono"].Value = Raiz.telefono;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Ciudad"].Value = Raiz.ciudad;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["codsucursal"].Value = Raiz.sucursal;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Cuenta"].Value = Raiz.numeroCuenta;
+                formListarSal.dataGridViewListarCuenta.Rows[fila].Cells["Saldo"].Value = Raiz.saldo;
+
+                fila++;
+
+                RecorrerClienteSaldo(Raiz.NodoDerecho, formListarSal);
+            }
+        }
+        public void RecorrerPersona(Persona Raiz, AddClientes formPersona)
+        {
+
+            if (Raiz != null)
+            {
+               
                 RecorrerPersona(Raiz.NodoIzquierdo, formPersona);
                 formPersona.dataGridViewAddClientes.Rows.Add();
 
+                
                 formPersona.dataGridViewAddClientes.Rows[fila].Cells["codigo"].Value    = Raiz.codigo;
                 formPersona.dataGridViewAddClientes.Rows[fila].Cells["nombre"].Value    = Raiz.nombre;
                 formPersona.dataGridViewAddClientes.Rows[fila].Cells["Apellido"].Value  = Raiz.apellido;
@@ -59,86 +156,32 @@ namespace Cajero
                 formPersona.dataGridViewAddClientes.Rows[fila].Cells["ciudad"].Value    = Raiz.ciudad;
 
                 fila++;
-
+                
                 RecorrerPersona(Raiz.NodoDerecho, formPersona);
             }
+           
         }
-        public void TransversaOrdenada(CNodo pNodo)//transversa Inorder
-                                                   //como parametro el nodo sobre el cual queremos sacar la transversa Inorder de ese arbol
+
+        public void Recorrersucursal(Sucursal Raiz, AddSucursal formSucucrsal)
         {
-            if (pNodo == null)//caso base
-                return;
-
-            //si tengo izquierda,proceso a la izquierda
-            if (pNodo.Izq != null)
+            if (Raiz != null)
             {
-                i++;
-                TransversaOrdenada(pNodo.Izq);//llamada recursiva a quien sea que tengamos en la izquierda
-                i--;
-            }
+                Recorrersucursal(Raiz.NodoIzquierdo, formSucucrsal);
+                formSucucrsal.dataGridViewAddSucursal.Rows.Add();
 
-            Console.WriteLine("{0}, ", pNodo.Dato);//nos procesamos 
+                formSucucrsal.dataGridViewAddSucursal.Rows[fila].Cells["codigo"].Value   = Raiz.codigo;
+                formSucucrsal.dataGridViewAddSucursal.Rows[fila].Cells["nombre"].Value    = Raiz.nombre;
+                formSucucrsal.dataGridViewAddSucursal.Rows[fila].Cells["direccion"].Value = Raiz.direccion;
+                formSucucrsal.dataGridViewAddSucursal.Rows[fila].Cells["telefono"].Value  = Raiz.telefono;
+                formSucucrsal.dataGridViewAddSucursal.Rows[fila].Cells["ciudad"].Value    = Raiz.ciudad;
 
-            //si tengo derecha,proceso a la derecha
-            if (pNodo.Der != null)//si tenemos a alguien en la derecha
-            {
-                i++;
-                TransversaOrdenada(pNodo.Der);//hacemos transversa ordenada de quien tengamos nosotros en la derecha
-                i--;
-                //Con esto se va a recorrer el arbol con una transversa inorder y nos van a aparecer los datos que nosotros tenemos ordenados de menor a mayor     
+                fila++;
+
+                Recorrersucursal(Raiz.NodoDerecho, formSucucrsal);
             }
         }
 
-        //inorder comienza 
-        public int EncuentraMinimo(CNodo pNodo)//pasamos como parametro el nodo que del arbol deseamos encontrar el minimo 
-        {
-            if (pNodo == null)
-                return 0;
 
-            trabajo = pNodo;
-            int minimo = trabajo.Dato;
-
-            while (trabajo.Izq != null)
-            {
-                trabajo = trabajo.Izq;//muevo trabajo hacia la izquierda,nos permitira en cada vuelta del ciclo mover mi referencia de trabajo entre nodo y nodo que se encuentra a la izquierda
-                minimo = trabajo.Dato;//actualizo minimo, con cada movimiento se actualiza, hasta que llegue aquel que ya no tenga mas izquierdas y con eso garantizamos que sea el mas pequeño del arbol
-                //minimo quedaria con el valor mas pequeño del arbol
-            }
-            return minimo;
-        }
-        public CNodo EncuentraNodoMinimo(CNodo pNodo)// el nodo que va a ser usado como raiz para encontrar el minimo de su arbol 
-                                                     //regreso un nodo
-        {
-            if (pNodo == null)
-                return null;
-
-            trabajo = pNodo;
-            int minimo = trabajo.Dato;
-
-            while (trabajo.Izq != null)//recorro cada uno de los elementos hacia la izquierda
-            {
-                trabajo = trabajo.Izq;
-                minimo = trabajo.Dato;
-            }
-            return trabajo;//trabajo va a quedar apuntando al nodo mas a la izquierda despues del ciclo
-            //con eso ya tenemos la referencia al nodo que tiene el valor mas pequeño del arbol
-        }
-
-        public int EncuentraMaximo(CNodo pNodo)
-        {
-            if (pNodo == null)
-                return 0;
-
-            trabajo = pNodo;
-            int maximo = trabajo.Dato;
-
-            while (trabajo.Der != null)
-            {
-                trabajo = trabajo.Der;//trabajamos en el lado derecho , cuando llegamos a un nodo derecho que ya no tiene mas, sabemos que hemos llegado al nodo mas derecho posible.
-                maximo = trabajo.Dato;
-            }
-            return maximo;//regresamos el maximo 
-        }
-
+       
     }
 }
