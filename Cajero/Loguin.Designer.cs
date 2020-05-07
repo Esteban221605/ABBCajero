@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loguin));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -40,6 +41,7 @@
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
             this.txtUser = new System.Windows.Forms.TextBox();
+            this.timerLoguin = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -107,6 +109,7 @@
             this.txtpass.ForeColor = System.Drawing.Color.DimGray;
             this.txtpass.Location = new System.Drawing.Point(317, 175);
             this.txtpass.Name = "txtpass";
+            this.txtpass.PasswordChar = '*';
             this.txtpass.Size = new System.Drawing.Size(401, 20);
             this.txtpass.TabIndex = 2;
             this.txtpass.Text = "CONTRASEÑA";
@@ -118,7 +121,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(479, 9);
+            this.label1.Location = new System.Drawing.Point(480, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 21);
             this.label1.TabIndex = 0;
@@ -177,6 +180,11 @@
             this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter_1);
             this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave_1);
             // 
+            // timerLoguin
+            // 
+            this.timerLoguin.Enabled = true;
+            this.timerLoguin.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Loguin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -222,6 +230,7 @@
         public System.Windows.Forms.TextBox txtpass;
         public System.Windows.Forms.TextBox txtUser;
         public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timerLoguin;
     }
 }
 

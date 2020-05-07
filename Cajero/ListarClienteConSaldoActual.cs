@@ -54,13 +54,7 @@ namespace Cajero
 
         private void btnCancelarCliente_Click(object sender, EventArgs e)
         {
-            foreach (Control oControls in this.panel1.Controls)
-            {
-                if (oControls is TextBox)
-                {
-                    oControls.Text = ""; // Eliminar el texto del TextBox
-                }
-            }
+            this.Close();
         }
     }
 }
